@@ -1,0 +1,229 @@
+---
+title: "Mongolian Plateau Veg Stats"
+author: "G Allington"
+date: "3/9/2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Initial Data Explorartion & Analysis
+
+This is the initial analysis and ordination of vegetation survey data from the Mongolian Plateau, collected in summer 2016.  Data collection sites in Inner Mongolia and Mongolia.
+Eventually plot a map here of the sampling sites.  
+Below are analyses of the entire dataset, which includes cover data for species from multiple plots per site, and of the same data with species cover per plot averaged by site. Data were aggregated for the second step to allow for comparison to the environmental data, which contain one value per site.
+
+```{r echo = FALSE, message = FALSE}
+library(vegan)
+library(MASS)
+library(dplyr)
+library(tidyr)
+library(reshape)
+library(stringr)
+library(ggplot2)
+```
+1. Load the data and prep it:
+```{r echo=FALSE, message =FALSE}
+#load data
+mgp16<- read.csv("./data/2016_MGIM_ga_veg_subset.csv", 
+                  header = TRUE)
+
+
+sp.df<- select(mgp16, site_numeral, Plot, Species, Cover)
+sp.df$Species<- str_replace_all(sp.df$Species, " ", ".")
+
+# convert to a sitexspecies matrix
+site.sp.quad <- cast(sp.df, site_numeral + Plot ~ Species, 
+                     value='Cover', FUN=mean)
+site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
+site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
+site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+
+# calc distance matrix
+dis.bray <- vegdist(site.matrix,method="bray")
+# id 'treatments' = region
+treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
+sites<- site.sp.quad[1:104, 1]
+plots<- site.sp.quad[1:104, 2]
+
+# Run the MDS
+dis.mds <- metaMDS(dis.bray, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+# view the results:
+# dis.mds
+
+# pull the scores from the results:
+scores <- data.frame(scores(dis.mds, display = "sites")) # this extracts the scores for later plotting
+scores2<- cbind(sites, scores) # bind the scores to the site info
+```
+
+## NMDS Plot 
+
+Plot of the two NMDS axes, symbols separated by country (shape), site (color) and plot replicate (shade):
+
+```{r echo=FALSE, fig.width = 10, fig.height = 7}
+ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(sites), alpha=factor(plots)))+
+   geom_point(aes(shape= treat), size=5)+
+   scale_fill_identity()+    # need a better color scale
+   xlab("NMDS Axis 1")+
+   ylab("NMDS Axis 2")
+```
+
+It is slightly easier to see the separation of sites by country if we just plot the hulls:
+Clear distinction between the clusters for IMAR and MG with NMDS. Sites within country are clustered together. 
+Most spread is along the first NMDS axis. All the difference between the MG adn IMAR clusters is on the first axis. They have very similar ranges on the second axis. We discussed that the first axis (at least for combined country data) may be separated by land use intensity? Not sure how that would change when just looking at one country at a time..
+``` {r echo = FALSE, warning = FALSE}
+plot(dis.mds, type = "t")
+ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
+```
+  If we look at each countyr separately, the plots within sites show diff patterns by country as well.  In IMAR there is clear distinction between individual sites; plots are more similar wihtin site than among. Again sites 34 and 35 are located farther out on the first axis. 
+
+``` {r echo = FALSE, warning = FALSE}
+# subsetting to look just at IMAR:
+#
+im.site.sp <- cast(sp.df[331:540,], site_numeral + Plot ~ Species, 
+                   value='Cover', FUN=mean)
+im.site.sp <- as.data.frame(im.site.sp) #convert from class "cast" to a df
+im.site.sp[is.na(im.site.sp)] <- 0   #replace NA with 0
+im.matrix <- as.matrix.cast_df(im.site.sp)
+# calc distance matrix
+im.dis <- vegdist(im.matrix,method="bray")
+
+# id 'sites' and 'plots'
+im.sites<- im.site.sp[1:38, 1]
+im.plots<- im.site.sp[1:38, 2]
+# apply mds function to distance matrix:
+im.mds <- metaMDS(im.dis, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+
+im.scores <- data.frame(scores(im.mds, display = "sites")) # this extracts the scores you want to plot in ggplot
+im.scores2<- cbind(im.sites, im.scores) # bind the scores to the site info
+
+ggplot(im.scores2, aes(x=NMDS1, y=NMDS2, color=factor(im.sites)))+#here you can color the points how you need to look at substructure.
+  geom_point(size=5)+#not sure if you also need shape info. This has helped me look at a lot of substructure among points.
+  #scale_color_brewer("Spectral")+
+  scale_fill_identity()+
+  #scale_fill_grey(start = 0.2, end = 0.8)+ 
+  xlab("NMDS Axis 1")+
+  ylab("NMDS Axis 2")+
+  ggtitle("IMAR Plots")
+
+plot(im.mds, type = "p")
+title(main = "IMAR Sites")
+ordihull(im.mds,groups=im.sites,draw="polygon",col="grey90",label=T)
+
+```
+In MG there is much more overlap among sites, along both axes. Sites 1 and 2 are clearly separated from the rest on the left side of the firs axis.    
+``` {r echo = FALSE, warning = FALSE}
+#
+# subsetting to look just at MG:
+#
+mg.site.sp <- cast(sp.df[1:330,], site_numeral + Plot ~ Species, 
+                     value='Cover', FUN=mean)
+mg.site.sp <- as.data.frame(mg.site.sp) #convert from class "cast" to a df
+mg.site.sp[is.na(mg.site.sp)] <- 0   #replace NA with 0
+mg.matrix <- as.matrix.cast_df(mg.site.sp)
+# calc distance matrix
+mg.dis <- vegdist(mg.matrix,method="bray")
+
+# id 'sites' and 'plots'
+mg.sites<- mg.site.sp[1:66, 1]
+mg.plots<- mg.site.sp[1:66, 2]
+# apply mds function to distance matrix:
+mg.mds <- metaMDS(mg.dis, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+
+mg.scores <- data.frame(scores(mg.mds, display = "sites")) # this extracts the scores you want to plot in ggplot
+mg.scores2<- cbind(mg.sites, mg.scores) # bind the scores to the site info
+
+ggplot(mg.scores2, aes(x=NMDS1, y=NMDS2, color=factor(mg.sites)))+#here you can color the points how you need to look at substructure.
+  geom_point(size=5)+#not sure if you also need shape info. This has helped me look at a lot of substructure among points.
+  #scale_color_brewer("Spectral")+
+  scale_fill_identity()+
+  #scale_fill_grey(start = 0.2, end = 0.8)+ 
+  xlab("NMDS Axis 1")+
+  ylab("NMDS Axis 2")+
+  ggtitle("Mongolia Plots")
+
+plot(mg.mds, type = "p")
+title(main = "Mongolia Sites")
+ordihull(mg.mds,groups=mg.sites,draw="polygon",col="grey90",label=T)
+```  
+
+
+## Incorporating environmental data from Ranjeet to try and explain the spread   
+
+I am using EVI and albedo here. GPP and EVI are so highly correlated it doesn't make sense to use both. 
+
+First with the entire plateau:
+The labels in black are of the Sites, which are labelled w row for some reason.    
+``` {r echo = FALSE, warning = FALSE, messages = FALSE}
+# CCA
+#
+# attempting to combine sitexsp w env data via CCA :
+# this still needs fine tuning.
+
+# trying a CCA to bring in ENV data
+
+# import the data
+mg.env16<- read.csv("./data/mgveg_env_vars.csv", sep=",",
+                 header = TRUE, stringsAsFactors = FALSE, na.strings = "NA")
+
+# clean it up
+# 
+names(mg.env16)[8:13] <- c("LCnum", "LCtype", "GPPkg", "GPPg", "EVI", "NDVI")  #fix column names
+tbl_df(mg.env16) 
+
+sub.env<- mg.env16 %>%
+          select( LCtype, EVI, as.numeric(daily.albedo.WSA)) %>%
+          slice(1:35)
+
+# substituting a value for the one NA in albedo to see if it makes it work
+mean(sub.env$daily.albedo.WSA[3:22])
+sub.env[2,3]<- 0.2016
+
+
+
+# aggregating the species cover values by Site:
+site.sp <- site.sp.quad %>%
+            select(-Plot) 
+#reduce to mean cover by Site for now bc I don't know how to do this otherwise
+t<- aggregate(site.sp, by=list(Site= site.sp$site_numeral), FUN=mean) 
+site.sp<- select(t, -Site, -site_numeral)  #this is aggregated data!!!
+
+
+#Convert to relative frequencies ?
+rel.frq<-site.sp/rowSums(site.sp)
+
+# aggregated sites 
+ag.sites <- seq(1:35)
+
+test.cca <- cca(site.sp ~  EVI + daily.albedo.WSA, data= sub.env)   # removed LCtype +
+plot(test.cca,display=c("wa", "cn"))
+
+
+```    
+
+## Then for IMAR:  
+
+``` {r echo = FALSE, messages = FALSE}
+im.cca <- cca(site.sp[1:22,] ~  EVI+ daily.albedo.WSA, data= sub.env[1:22,])   
+
+plot(im.cca, display=c("wa", "cn"))
+  
+```
+  
+## And for MONGOLIA:  
+Note that the fit is not as great for the MG data. Need to investigate other variables.
+```{r echo = FALSE, messages = FALSE, fig.align='center'}
+
+mg.cca <- cca(site.sp[23:35,] ~  + EVI + daily.albedo.WSA, data= sub.env[23:35,])
+
+plot(mg.cca, display=c("wa", "cn"))
+
+```
+
+** TO DO **
+* I still need to calculate richness stats to estimate turnover, compare between IMAR/MG
+* We need to think about what other environmental variables we might be able to access and incorporate in to this.
+* This is just a first stab with the CCA so Ia m going to work with these analyses some mrore as well.
+

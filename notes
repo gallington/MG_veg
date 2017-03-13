@@ -1,0 +1,30 @@
+MGveg.R  is cal NMDS with the full set of sitesxsp data that includes all plots
+MGenv.R has the species data aggregated by site, so it matched with the environmental data (one value per site)
+MGenv.R also has some attempts at DCA and CCA
+
+Initial results:
+Clear distinction between the clusters for IMAR and MG with NMDS. Sites within country are clustered together. 
+Most spread is along the first NMDS axis. All the difference between the MG adn IMAR clusters is on teh first acis. They have very similar ranges on the second axis.
+IF we look at each countyr separately, the plots within sites show diff patterns by country as well. In IMAR there is clear distinction between individual sites; plots are more similar wihtin site than among. Again sites 34 and 35 are located farther out on the first axis.  In MG there is much more overlap among sites, along both axes. Sites 1 and 2 are clearly separated from teh rest on the left side of the firs axis.
+We discussed tha tthe first axis (at least for combined country data) may be separated by land use intensity? Not sure how that would change when just looking at one country at a time.
+
+1. 
+How else to investigate these diffs between IMAR and MG:
+Calc diversity indices within and among plots for each? Beta div/turnover?
+
+
+
+Env-- tried a CCA with the env data, the sites are sort of separating by albedo and EVI? 
+How to interpret this: Axis 1= EVI, Axis 2 =albedo?
+sites 15, 34 and 35, 19, along albedo axis? 
+
+2. 
+ENV gradients:
+Not getting great info from the first look
+Need to make sure approaching this properly.
+
+
+
+************************
+Turn this in to an RMarkdown doc. 
+************************
