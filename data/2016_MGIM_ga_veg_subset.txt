@@ -1,0 +1,541 @@
+site_numeral	site_original	plat	Plot	Species	Cover
+1	S01	mg	2	Haplophyllum dauricum	0.5
+1	S01	mg	3	Unk	0.5
+1	S01	mg	3	Artemisia adamsii	0.5
+1	S01	mg	2	Potentilla bifurca	2
+1	S01	mg	2	Dontestemon integrifolium	3
+1	S01	mg	1	Haplophyllum dauricum	5
+1	S01	mg	1	Leymus chinensis	5
+1	S01	mg	2	Allium anisopodium	5
+1	S01	mg	3	Leymus chinensis	5
+1	S01	mg	3	Allium anisopodium	5
+1	S01	mg	1	Cymbaria daurica	8
+1	S01	mg	2	Stipa krylovii	8
+1	S01	mg	1	Carex duriuscula 	10
+1	S01	mg	1	Stipa krylovii	10
+1	S01	mg	2	Leymus chinensis	10
+1	S01	mg	2	Carex duriuscula 	10
+1	S01	mg	3	Artemisia frigida	10
+1	S01	mg	2	Artemisia frigida	15
+1	S01	mg	2	Festuca lenensis	15
+1	S01	mg	3	Festuca lenensis	15
+1	S01	mg	3	Carex duriuscula 	20
+1	S01	mg	3	Heteropappus hispidus	20
+1	S01	mg	1	Artemisia frigida	25
+2	S02	mg	1	Potentilla bifurca	0.5
+2	S02	mg	1	Oxytropis sp.	0.5
+2	S02	mg	2	Allium anisopodium	0.5
+2	S02	mg	2	Caragana stenophylla	1
+2	S02	mg	3	Oxytropis sp.	1
+2	S02	mg	3	Allium anisopodium	3
+2	S02	mg	1	Leymus chinensis	5
+2	S02	mg	1	Allium anisopodium	5
+2	S02	mg	1	Allium polyrhizum	5
+2	S02	mg	3	Leymus chinensis	5
+2	S02	mg	3	Cleistogenes squarrosa	5
+2	S02	mg	3	Carex duriuscula 	5
+2	S02	mg	2	Artemisia frigida	15
+2	S02	mg	2	Leymus chinensis	15
+2	S02	mg	3	Artemisia frigida	15
+2	S02	mg	1	Artemisia frigida	25
+3	S03	mg	2	Salsola collina	3
+3	S03	mg	1	Salsola collina	5
+3	S03	mg	1	Potentilla bifurca	5
+3	S03	mg	2	Chenopodium acuminatum	5
+3	S03	mg	3	Carex duriuscula 	5
+3	S03	mg	1	Heteropappus hispidus	8
+3	S03	mg	1	Chenopodium acuminatum	10
+3	S03	mg	1	Carex duriuscula 	10
+3	S03	mg	1	Caragana stenophylla	15
+3	S03	mg	2	Convolvulus armani	15
+3	S03	mg	3	Chenopodium acuminatum	15
+3	S03	mg	3	Allium mongolicum	20
+3	S03	mg	2	Allium mongolicum	25
+3	S03	mg	3	Salsola collina	35
+4	S04	mg	1	Salsola collina	0.5
+4	S04	mg	1	Bascia dasyphylla	0.5
+4	S04	mg	2	Chenopodium acuminatum	1
+4	S04	mg	1	Chenopodium acuminatum	2
+4	S04	mg	2	Allium mongolicum	2
+4	S04	mg	1	Agropyron cristatum	3
+4	S04	mg	2	Bascia dasyphylla	3
+4	S04	mg	1	Allium mongolicum	5
+4	S04	mg	2	Carex pediformis	5
+4	S04	mg	2	Artemisia adamsii	5
+4	S04	mg	3	Bascia dasyphylla	5
+4	S04	mg	3	Artemisia adamsii	5
+4	S04	mg	3	Stipa glareosa	5
+4	S04	mg	1	Allium polyrhizum	8
+4	S04	mg	2	Allium polyrhizum	8
+4	S04	mg	2	Salsola collina	10
+4	S04	mg	3	Allium mongolicum	10
+4	S04	mg	3	Chenopodium acuminatum	10
+4	S04	mg	1	Artemisia adamsii	15
+4	S04	mg	1	Carex pediformis	15
+4	S04	mg	2	Stipa glareosa	15
+4	S04	mg	3	Salsola collina	15
+4	S04	mg	3	Carex pediformis	20
+5	S05	mg	2	Bascia dasyphylla	1
+5	S05	mg	3	Bascia dasyphylla	1
+5	S05	mg	3	Artimisia xeriphytica	1
+5	S05	mg	1	Salsola passerina	2
+5	S05	mg	1	Artimisia xeriphytica	2
+5	S05	mg	2	Artimisia xeriphytica	2
+5	S05	mg	2	Ajania trifida	2
+5	S05	mg	3	Salsola passerina	2
+5	S05	mg	1	Allium polyrhizum	3
+5	S05	mg	1	Artemisia commutata	3
+5	S05	mg	2	Allium polyrhizum	3
+5	S05	mg	3	Ajania trifida	3
+5	S05	mg	1	Anabasis brevifolia	5
+5	S05	mg	1	Stipa glareosa	5
+5	S05	mg	2	Anabasis brevifolia	5
+5	S05	mg	3	Anabasis brevifolia	5
+5	S05	mg	3	Allium polyrhizum	8
+5	S05	mg	3	Artemisia commutata	8
+5	S05	mg	2	Artemisia commutata	15
+6	S06	mg	1	Bascia dasyphylla	0.5
+6	S06	mg	2	SP.3	1
+6	S06	mg	3	Ptilotrichum canenscens	1
+6	S06	mg	3	Salsola collina	4
+6	S06	mg	1	Stipa gobica	5
+6	S06	mg	1	Salsola collina	5
+6	S06	mg	2	Salsola collina	5
+6	S06	mg	1	Achnatherum splendens	10
+6	S06	mg	2	Artemisia adamsii	23
+6	S06	mg	1	Artemisia adamsii	25
+6	S06	mg	3	Artemisia adamsii	25
+6	S06	mg	3	Stipa gobica	30
+7	S07	mg	2	Euphorbia sp.	0.5
+7	S07	mg	3	Bascia dasyphylla	0.5
+7	S07	mg	3	Artemisia adamsii	0.5
+7	S07	mg	1	Bascia dasyphylla	2
+7	S07	mg	2	SP. 3	2
+7	S07	mg	2	Salsola collina	2
+7	S07	mg	3	Anabasis brevifolia	2
+7	S07	mg	2	Bascia dasyphylla	3
+7	S07	mg	3	Eragrostis minor	3
+7	S07	mg	3	Carex pediformis	5
+7	S07	mg	3	Allium polyrhizum	5
+7	S07	mg	2	Eragrostis minor	10
+7	S07	mg	1	Salsola passerina	15
+7	S07	mg	2	Salsola passerina	15
+7	S07	mg	3	Salsola passerina	15
+8	S08	mg	1	Salsola collina	1
+8	S08	mg	1	Chenopodium album	1
+8	S08	mg	1	Chenopodium acuminatum	1
+8	S08	mg	2	Chenopodium acuminatum	1
+8	S08	mg	3	Chenopodium album	1
+8	S08	mg	3	Chenopodium acuminatum	1
+8	S08	mg	2	Salsola collina	2
+8	S08	mg	2	Chenopodium album	2
+8	S08	mg	3	Oxytropis sp.	3
+8	S08	mg	2	Carex pediformis	5
+8	S08	mg	2	Agropyron cristatum	15
+8	S08	mg	3	Carex pediformis	20
+8	S08	mg	1	Agropyron cristatum	30
+8	S08	mg	3	Agropyron cristatum	30
+9	S09	mg	1	Salsola collina	1
+9	S09	mg	3	Artemisia adamsii	1
+9	S09	mg	3	Bascia dasyphylla	1
+9	S09	mg	1	Anabasis brevifolia	2
+9	S09	mg	1	Rheum nanum	2
+9	S09	mg	2	Artemisia frigida	2
+9	S09	mg	2	Bascia dasyphylla	2
+9	S09	mg	2	Artemisia adamsii	3
+9	S09	mg	3	Carex pediformis	3
+9	S09	mg	1	Carex pediformis	5
+9	S09	mg	1	Bascia dasyphylla	5
+9	S09	mg	2	Salsola passerina	5
+9	S09	mg	2	Carex pediformis	5
+9	S09	mg	1	Salsola passerina	8
+9	S09	mg	1	Artemisia adamsii	8
+9	S09	mg	3	Stipa glareosa	10
+9	S09	mg	2	Allium polyrhizum	15
+9	S09	mg	3	Allium polyrhizum	15
+10	S10	mg	3	Bascia dasyphylla	0.5
+10	S10	mg	1	Bascia dasyphylla	1
+10	S10	mg	2	Halogeton glomerata	2
+10	S10	mg	2	Bascia dasyphylla	2
+10	S10	mg	3	Allium polyrhizum	2
+10	S10	mg	3	Anabasis brevifolia	2
+10	S10	mg	2	Salsola passerina	3
+10	S10	mg	1	Halogeton glomerata	5
+10	S10	mg	2	Carex pediformis	5
+10	S10	mg	1	Allium polyrhizum	10
+10	S10	mg	3	Halogeton glomerata	10
+11	S11	mg	1	Bascia dasyphylla	2
+11	S11	mg	2	Bascia dasyphylla	2
+11	S11	mg	2	Halogeton glomerata	2
+11	S11	mg	3	Halogeton glomerata	2
+11	S11	mg	3	Bascia dasyphylla	3
+11	S11	mg	1	Stipa gobica	5
+11	S11	mg	3	Artemisia adamsii	5
+11	S11	mg	3	Allium polyrhizum	7
+11	S11	mg	3	Stipa gobica	8
+11	S11	mg	1	Allium mongolicum	10
+11	S11	mg	2	Allium polyrhizum	10
+11	S11	mg	1	Allium polyrhizum	15
+11	S11	mg	2	Stipa gobica	20
+11	S11	mg	2	Salsola collina	20
+11	S11	mg	3	Salsola collina	20
+11	S11	mg	1	Salsola collina	25
+12	S12	mg	2	Convolvulus armani	0.5
+12	S12	mg	3	Oxytropis monophyta	0.5
+12	S12	mg	1	Convolvulus armani	1
+12	S12	mg	2	Carex duriuscula 	1
+12	S12	mg	2	Halogeton glomerata	2
+12	S12	mg	1	Salsola collina	3
+12	S12	mg	2	Allium polyrhizum	3
+12	S12	mg	2	Artemisia frigida	3
+12	S12	mg	2	Aristida heymanii	3
+12	S12	mg	3	Carex pediformis	3
+12	S12	mg	1	Allium polyrhizum	4
+12	S12	mg	1	Carex pediformis	4
+12	S12	mg	3	Salsola collina	4
+12	S12	mg	3	Allium polyrhizum	6
+12	S12	mg	3	Aristida heymanii	7
+12	S12	mg	3	Peganum nigelastrum	8
+12	S12	mg	1	Artemisia frigida	10
+12	S12	mg	2	Peganum nigelastrum	10
+13	S13	mg	1	Salsola collina	0.5
+13	S13	mg	1	Bascia dasyphylla	0.5
+13	S13	mg	2	Bascia dasyphylla	0.5
+13	S13	mg	1	Halogeton glomerata	1
+13	S13	mg	2	Salsola collina	1
+13	S13	mg	3	Salsola collina	1
+13	S13	mg	3	Bascia dasyphylla	1
+13	S13	mg	2	Anabasis brevifolia	2
+13	S13	mg	1	Stipa glareosa	3
+13	S13	mg	3	Anabasis brevifolia	5
+13	S13	mg	1	Anabasis brevifolia	10
+13	S13	mg	3	Stipa glareosa	10
+13	S13	mg	2	Stipa glareosa	15
+14	S14	mg	3	Salsola collina	0.5
+14	S14	mg	2	Hedysarum fruticosum	1
+14	S14	mg	1	Heteropappus hispidus	2
+14	S14	mg	1	QG2	2
+14	S14	mg	1	Anabasis brevifolia	2
+14	S14	mg	2	Salsola collina	2
+14	S14	mg	2	Cleistogenes squarrosa	2
+14	S14	mg	2	Caryopteris mongolica	3
+14	S14	mg	3	Heteropappus hispidus	3
+14	S14	mg	2	QG2	4
+14	S14	mg	2	QG1	7
+14	S14	mg	3	QG1	7
+14	S14	mg	1	QG1	10
+15	S15	mg	2	Salsola collina	0.5
+15	S15	mg	2	Chenopodium acuminatum	0.5
+15	S15	mg	3	Salsola collina	0.5
+15	S15	mg	1	Salsola collina	2
+15	S15	mg	1	Bascia dasyphylla	3
+15	S15	mg	2	Bascia dasyphylla	3
+15	S15	mg	1	Nitraria siberica	20
+15	S15	mg	3	Halogeton glomerata	20
+15	S15	mg	2	Nitraria siberica	30
+15	S15	mg	2	Halogeton glomerata	30
+15	S15	mg	3	Nitraria siberica	30
+15	S15	mg	1	Halogeton glomerata	50
+16	S16	mg	1	Bascia dasyphylla	0.5
+16	S16	mg	2	Bascia dasyphylla	0.5
+16	S16	mg	2	Oxytropis sp.	0.5
+16	S16	mg	3	Bascia dasyphylla	0.5
+16	S16	mg	1	Salsola collina	1
+16	S16	mg	2	Artemisia commutata	1
+16	S16	mg	2	Tribulus terrestris	1
+16	S16	mg	3	Salsola collina	1
+16	S16	mg	1	Artemisia commutata	2
+16	S16	mg	2	Anabasis brevifolia	2
+16	S16	mg	2	Salsola collina	2
+16	S16	mg	2	Cleistogenes squarrosa	2
+16	S16	mg	3	Stipa glareosa	2
+16	S16	mg	2	Salsola passerina	6
+16	S16	mg	1	Anabasis brevifolia	10
+16	S16	mg	3	Anabasis brevifolia	10
+17	S17	mg	2	Bascia dasyphylla	0.5
+17	S17	mg	1	Salsola collina	1
+17	S17	mg	2	Dontostemon sp.	1
+17	S17	mg	2	Salsola collina	1
+17	S17	mg	1	Allium mongolicum	2
+17	S17	mg	2	Ferula bungeana	3
+17	S17	mg	3	Asparagus gobicus	3
+17	S17	mg	1	Asparagus gobicus	5
+17	S17	mg	1	Stipa gobica	7
+17	S17	mg	3	Stipa gobica	12
+18	S18	mg	3	Bascia dasyphylla	0.5
+18	S18	mg	2	Stipa gobica	1
+18	S18	mg	1	Ephedra sinica	2
+18	S18	mg	2	Salsola collina	2
+18	S18	mg	3	Asparagus gobicus	3
+18	S18	mg	3	Stipa glareosa	4
+18	S18	mg	3	Salsola collina	5
+18	S18	mg	1	Stipa glareosa	8
+18	S18	mg	1	Stipa gobica	10
+19	S19	mg	3	Salsola collina	0.5
+19	S19	mg	1	Chenopodium album	1
+19	S19	mg	2	Salsola collina	1
+19	S19	mg	2	Bascia dasyphylla	1
+19	S19	mg	2	Eurotia ewersmanniana	1
+19	S19	mg	3	Heteropappus hispidus	1
+19	S19	mg	1	Eurotia ewersmanniana	2
+19	S19	mg	2	Allium polyrhizum	2
+19	S19	mg	3	Eurotia ewersmanniana	3
+19	S19	mg	1	Stipa gobica	4
+19	S19	mg	3	Cleistogenes squarrosa	4
+19	S19	mg	3	Carex pediformis	4
+19	S19	mg	3	Halogeton glomerata	4
+19	S19	mg	3	Convolvulus armani	5
+19	S19	mg	1	Halogeton glomerata	10
+19	S19	mg	2	Halogeton glomerata	20
+20	S20	mg	2	Allium mongolicum	0.5
+20	S20	mg	2	Stipa gobica	1
+20	S20	mg	2	Ferula bungeana	1
+20	S20	mg	1	Carex pediformis	2
+20	S20	mg	2	Artemisia frigida	2
+20	S20	mg	2	Ajania trifida	2
+20	S20	mg	3	Dontestemon integrifolium	2
+20	S20	mg	1	Allium polyrhizum	3
+20	S20	mg	3	Allium polyrhizum	4
+20	S20	mg	3	Cleistogenes squarrosa	5
+20	S20	mg	2	Cleistogenes squarrosa	6
+20	S20	mg	1	Stipa gobica	10
+20	S20	mg	3	Stipa glareosa	10
+21	S21	mg	1	Allium mongolicum	0.5
+21	S21	mg	1	Bascia dasyphylla	0.5
+21	S21	mg	1	QG1	0.5
+21	S21	mg	2	QG1	0.5
+21	S21	mg	2	Bascia dasyphylla	0.5
+21	S21	mg	2	Halogeton glomerata	0.5
+21	S21	mg	3	Halogeton glomerata	0.5
+21	S21	mg	3	Bascia dasyphylla	0.5
+21	S21	mg	1	Salsola collina	1
+21	S21	mg	1	Halogeton glomerata	1
+21	S21	mg	2	Salsola collina	1
+21	S21	mg	3	Salsola collina	1
+21	S21	mg	3	QG1	1
+21	S21	mg	1	Allium polyrhizum	2
+21	S21	mg	2	Scorzonera divaricata	2
+21	S21	mg	3	Stipa gobica	2
+21	S21	mg	1	Stipa glareosa	3
+21	S21	mg	1	Cleistogenes squarrosa	4
+21	S21	mg	2	Stipa glareosa	8
+21	S21	mg	3	Stipa glareosa	8
+22	S22	mg	1	Stipa sp	0.5
+22	S22	mg	3	Stipa sp	0.5
+22	S22	mg	2	Bascia dasyphylla	1
+22	S22	mg	2	Salsola collina	1
+22	S22	mg	3	Bascia dasyphylla	1
+22	S22	mg	3	Salsola collina	2
+22	S22	mg	1	Bascia dasyphylla	3
+22	S22	mg	1	Salsola collina	3
+22	S22	mg	2	Convolvulus armani	3
+23	Dafanpu	im	1	Artemisia annua L.	0.5
+23	Dafanpu	im	1	Artemisia scoparia	0.5
+23	Dafanpu	im	1	Gueldenstaedtia verna sp. verna	0.5
+23	Dafanpu	im	1	Cleistogenes polyphylla Keng	0.5
+23	Dafanpu	im	1	Salsola collina Pall.	0.5
+23	Dafanpu	im	1	Oxytropis psamocharis	0.5
+23	Dafanpu	im	1	Heteropappus altaicus	0.5
+23	Dafanpu	im	2	Lespedeza potaninii	0.5
+23	Dafanpu	im	2	Cleistogenes polyphylla Keng	0.5
+23	Dafanpu	im	2	Artemisia annua L.	0.5
+23	Dafanpu	im	2	Salsola collina Pall.	0.5
+23	Dafanpu	im	2	Potentilla tanacetifolia	0.5
+23	Dafanpu	im	2	Ixeris denticulata	0.5
+23	Dafanpu	im	3	Salsola collina Pall.	0.5
+23	Dafanpu	im	3	Lespedeza potaninii	0.5
+23	Dafanpu	im	3	Gueldenstaedtia verna sp. verna	0.5
+23	Dafanpu	im	3	Stipa capillata Linn.	0.5
+23	Dafanpu	im	3	Polygala tenuifolia Willd	0.5
+23	Dafanpu	im	3	Tribulus terrestris	0.5
+23	Dafanpu	im	3	Heteropappus altaicus	0.5
+23	Dafanpu	im	2	Ferula bungeana Kitag.	1
+23	Dafanpu	im	1	Lespedeza potaninii	4
+23	Dafanpu	im	3	Cleistogenes polyphylla Keng	4
+23	Dafanpu	im	3	Artemisia annua L.	15
+23	Dafanpu	im	2	Thymus inaequalis	18
+23	Dafanpu	im	3	Caragana korshinskii Kom.	25
+23	Dafanpu	im	1	Thymus inaequalis	35
+24	Hantaizhen	im	1	Heteropappus altaicus	0.5
+24	Hantaizhen	im	1	Lespedeza potaninii	0.5
+24	Hantaizhen	im	1	Geraniaceae	0.5
+24	Hantaizhen	im	2	Crepis rigescens Diels.	0.5
+24	Hantaizhen	im	2	Heteropappus altaicus	0.5
+24	Hantaizhen	im	2	Lespedeza potaninii	0.5
+24	Hantaizhen	im	2	Salsola collina Pall.	0.5
+24	Hantaizhen	im	2	Astragalus membranaceus	0.5
+24	Hantaizhen	im	2	Artemisia scoparia	0.5
+24	Hantaizhen	im	2	Polygala tenuifolia Willd	0.5
+24	Hantaizhen	im	2	Geraniaceae	0.5
+24	Hantaizhen	im	2	Cleistogenes polyphylla Keng	0.5
+24	Hantaizhen	im	3	Crepis rigescens Diels.	0.5
+24	Hantaizhen	im	3	Cleistogenes polyphylla Keng	0.5
+24	Hantaizhen	im	3	Neopallasia petinata	0.5
+24	Hantaizhen	im	3	Polygala tenuifolia Willd	0.5
+24	Hantaizhen	im	3	Artemisia scoparia	0.5
+24	Hantaizhen	im	3	Imperata cylindrica	0.5
+24	Hantaizhen	im	1	Gypsophila licentiana Hand.-Mazz.	2
+24	Hantaizhen	im	1	Poa annua L.	2
+24	Hantaizhen	im	2	Stipa bungeana	4
+24	Hantaizhen	im	1	Caragana korshinskii Kom.	5
+24	Hantaizhen	im	3	Lespedeza potaninii	17
+24	Hantaizhen	im	3	Poa annua L.	20
+24	Hantaizhen	im	1	Stipa bungeana	30
+25	Haizizhen	im	1	Artemisia scoparia	0.5
+25	Haizizhen	im	1	Leymus chinensis (Trin.)	0.5
+25	Haizizhen	im	1	Geraniaceae	0.5
+25	Haizizhen	im	1	Echinops gmelinii	0.5
+25	Haizizhen	im	1	Allium mongolicum Regel	0.5
+25	Haizizhen	im	2	Echinops gmelinii	0.5
+25	Haizizhen	im	2	Leymus chinensis (Trin.)	0.5
+25	Haizizhen	im	2	Cleistogenes polyphylla Keng	0.5
+25	Haizizhen	im	2	Dracocephalum moldavica Linn.	0.5
+25	Haizizhen	im	3	Cleistogenes polyphylla Keng	0.5
+25	Haizizhen	im	3	Dracocephalum moldavica Linn.	0.5
+25	Haizizhen	im	3	Leymus chinensis (Trin.)	0.5
+25	Haizizhen	im	3	Heteropappus altaicus	0.5
+25	Haizizhen	im	3	Artemisia scoparia	0.5
+25	Haizizhen	im	2	Artemisia ordosica	2
+25	Haizizhen	im	3	Radix Glycyrrhizae	2
+25	Haizizhen	im	1	Artemisia ordosica	4.5
+25	Haizizhen	im	2	Artemisia scoparia	5
+25	Haizizhen	im	3	Artemisia ordosica	10
+26	Talagou	im	1	Ixeris denticulata	0.5
+26	Talagou	im	1	Plantaga lanceolata L	0.5
+26	Talagou	im	1	Corispermum declinatum	0.5
+26	Talagou	im	2	Dracocephalum moldavica Linn.	0.5
+26	Talagou	im	2	UnkG	0.5
+26	Talagou	im	2	Ixeris denticulata	0.5
+26	Talagou	im	2	Salsola collina Pall.	0.5
+26	Talagou	im	2	Corispermum declinatum	0.5
+26	Talagou	im	3	Ixeris denticulata	0.5
+26	Talagou	im	3	UnkG	0.5
+26	Talagou	im	3	Dracocephalum moldavica Linn.	0.5
+26	Talagou	im	1	Salsola collina Pall.	3
+26	Talagou	im	2	Poa annua L.	4
+26	Talagou	im	3	Artemisia scoparia	5
+26	Talagou	im	1	UnkG	6
+26	Talagou	im	1	Artemisia scoparia	10
+26	Talagou	im	2	Artemisia ordosica	10
+26	Talagou	im	3	Salsola collina Pall.	70
+27	Xinizhen	im	1	Asparagus gobicus	0.5
+27	Xinizhen	im	1	Heteropappus altaicus	0.5
+27	Xinizhen	im	1	Astragalus membranaceus	0.5
+27	Xinizhen	im	1	Artemisia scoparia	0.5
+27	Xinizhen	im	2	Dracocephalum moldavica Linn.	0.5
+27	Xinizhen	im	2	Astragalus membranaceus	0.5
+27	Xinizhen	im	3	Oxytropis glacialis	0.5
+27	Xinizhen	im	3	Artemisia frigida	0.5
+27	Xinizhen	im	3	Salsola collina Pall.	0.5
+27	Xinizhen	im	3	Allium mongolicum Regel	0.5
+27	Xinizhen	im	3	Cleistogenes polyphylla Keng	0.5
+27	Xinizhen	im	1	Lespedeza potaninii	1
+27	Xinizhen	im	2	Heteropappus altaicus	1
+27	Xinizhen	im	3	Caragana stenophylla Pojark.	1
+27	Xinizhen	im	1	Artemisia frigida	8
+27	Xinizhen	im	2	Artemisia frigida	8
+27	Xinizhen	im	3	Stipa breviflora Griseb.	20
+27	Xinizhen	im	2	Stipa breviflora Griseb.	27
+27	Xinizhen	im	1	Stipa breviflora Griseb.	70
+28	Wulanzhenbei	im	1	Salsola collina Pall.	0.5
+28	Wulanzhenbei	im	1	Caragana stenophylla Pojark.	0.5
+28	Wulanzhenbei	im	2	Cleistogenes polyphylla Keng	0.5
+28	Wulanzhenbei	im	2	Stipa capillata	0.5
+28	Wulanzhenbei	im	2	Allium mongolicum Regel	0.5
+28	Wulanzhenbei	im	3	Caragana stenophylla Pojark.	0.5
+28	Wulanzhenbei	im	1	Cleistogenes polyphylla Keng	1
+28	Wulanzhenbei	im	3	Stipa capillata	3
+28	Wulanzhenbei	im	1	Agropyron mongolicum Keng	4
+28	Wulanzhenbei	im	3	Artemisia frigida	6
+28	Wulanzhenbei	im	3	Agropyron mongolicum Keng	40
+28	Wulanzhenbei	im	2	Agropyron mongolicum Keng	50
+28	Wulanzhenbei	im	1	Stipa capillata	65
+29	Snbeiyangchang	im	1	Corispermum declinatum	0.5
+29	Snbeiyangchang	im	1	Plantaga lanceolata L	0.5
+29	Snbeiyangchang	im	2	Artemisia scoparia	0.5
+29	Snbeiyangchang	im	2	Corispermum declinatum	0.5
+29	Snbeiyangchang	im	3	Artemisia scoparia	0.5
+29	Snbeiyangchang	im	3	Corispermum declinatum	0.5
+29	Snbeiyangchang	im	3	Cleistogenes polyphylla Keng	0.5
+29	Snbeiyangchang	im	3	Peganum nigellastrum Bunge	1
+29	Snbeiyangchang	im	1	Artemisia scoparia	2
+29	Snbeiyangchang	im	2	Plantaga lanceolata L	2
+29	Snbeiyangchang	im	1	Caragana spinifera Kom.	4
+29	Snbeiyangchang	im	3	Salsola collina Pall.	10
+29	Snbeiyangchang	im	1	Salsola collina Pall.	12
+29	Snbeiyangchang	im	2	Salsola collina Pall.	35
+30	Qipanjing	im	1	Ptilagrostis pelliotii	0.5
+30	Qipanjing	im	1	Convolvulus tragacanthoides	0.5
+30	Qipanjing	im	1	Zygophyllum mucronatum	0.5
+30	Qipanjing	im	2	Convolvulus tragacanthoides	0.5
+30	Qipanjing	im	2	Salsola collina Pall.	0.5
+30	Qipanjing	im	2	Artemisia scoparia	0.5
+30	Qipanjing	im	3	Convolvulus tragacanthoides	0.5
+30	Qipanjing	im	3	Zygophyllum mucronatum	0.5
+30	Qipanjing	im	3	Salsola collina Pall.	0.5
+30	Qipanjing	im	3	Cleistogenes polyphylla Keng	0.5
+30	Qipanjing	im	2	Stipa capillata	1
+30	Qipanjing	im	3	Stipa capillata	2
+30	Qipanjing	im	2	Helianthemum soongoricm Schrenk	3
+30	Qipanjing	im	1	Helianthemum soongoricm Schrenk	4
+31	Touguan	im	1	Cymbaria mongolica	0.5
+31	Touguan	im	1	Astragalus membranaceus	0.5
+31	Touguan	im	1	Ceratocarpus latens	0.5
+31	Touguan	im	1	Salsola collina Pall.	0.5
+31	Touguan	im	1	Torularia humilis	0.5
+31	Touguan	im	2	Convolvulus tragacanthoides	0.5
+31	Touguan	im	2	Ptilagrostis pelliotii	0.5
+31	Touguan	im	2	Ceratocarpus latens	0.5
+31	Touguan	im	2	Salsola collina Pall.	0.5
+31	Touguan	im	3	Agropyron cristatum (Linn.) Gaertn.	0.5
+31	Touguan	im	3	Torularia humilis	0.5
+31	Touguan	im	3	Peganum multisectum	0.5
+31	Touguan	im	3	Salsola collina Pall.	0.5
+31	Touguan	im	3	Allium tenuissimum	0.5
+31	Touguan	im	3	Ceratocarpus latens	0.5
+31	Touguan	im	1	Stipa capillata	1
+31	Touguan	im	2	Torularia humilis	1
+31	Touguan	im	2	Cymbaria mongolica	1
+31	Touguan	im	3	Cymbaria mongolica	1
+31	Touguan	im	1	Agropyron cristatum (Linn.) Gaertn.	2
+31	Touguan	im	3	Echinops przewalskii	3
+31	Touguan	im	1	Peganum multisectum	15
+31	Touguan	im	3	Convolvulus tragacanthoides	18
+32	Bayanhaote	im	1	Artemisia scoparia	0.5
+32	Bayanhaote	im	1	Carex lasiocarpa	0.5
+32	Bayanhaote	im	1	Convolvulus ammannii Desr.	0.5
+32	Bayanhaote	im	1	Lepidium alashanicum	0.5
+32	Bayanhaote	im	1	Plantaga lanceolata L	0.5
+32	Bayanhaote	im	2	Salsola collina Pall.	0.5
+32	Bayanhaote	im	2	Neopallasia petinata	0.5
+32	Bayanhaote	im	3	Lepidium alashanicum	0.5
+32	Bayanhaote	im	3	Salsola collina Pall.	0.5
+32	Bayanhaote	im	3	Neopallasia petinata	0.5
+32	Bayanhaote	im	3	Stipa krylovii Roshev	0.5
+32	Bayanhaote	im	2	Lepidium alashanicum	1
+32	Bayanhaote	im	2	Bassia dasyphylla	1
+32	Bayanhaote	im	3	Bassia dasyphylla	1
+32	Bayanhaote	im	1	Eryx miliaris	2
+32	Bayanhaote	im	1	Bassia dasyphylla	2
+32	Bayanhaote	im	2	Eryx miliaris	6
+32	Bayanhaote	im	3	Eryx miliaris	20
+33	Helanshanbeisi	im	1	Neopallasia petinata	0.5
+33	Helanshanbeisi	im	1	Plantaga lanceolata L	0.5
+33	Helanshanbeisi	im	1	Bassia dasyphylla	5
+33	Helanshanbeisi	im	1	Convolvulus ammannii Desr.	5
+33	Helanshanbeisi	im	3	Salsola collina Pall.	6
+33	Helanshanbeisi	im	1	Salsola collina Pall.	10
+33	Helanshanbeisi	im	1	Stipa breviflora Griseb.	10
+33	Helanshanbeisi	im	2	Stipa breviflora Griseb.	10
+33	Helanshanbeisi	im	2	Salsola collina Pall.	10
+33	Helanshanbeisi	im	3	Convolvulus ammannii Desr.	10
+33	Helanshanbeisi	im	3	Stipa breviflora Griseb.	10
+33	Helanshanbeisi	im	2	Neopallasia petinata	0.5
+33	Helanshanbeisi	im	3	Artemisia scoparia	0.5
+34	Jiangui	im	3	Peganum nigellastrum Bunge	2
+34	Jiangui	im	2	Tetraena mongolica Maxim.	18
+35	Belagong	im	1	Tetraena mongolica Maxim.	0.5
+35	Belagong	im	2	Eryx miliaris	0.5
+35	Belagong	im	3	Echinops gmelinii	2
+35	Belagong	im	2	Echinops gmelinii	4
+35	Belagong	im	1	Echinops gmelinii	15

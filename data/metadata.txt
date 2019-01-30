@@ -1,0 +1,24 @@
+ENVIRONMENTAL PARAMETERS:
+
+longlat_chen16b.xls 
+This is the data file received from Ranjeet John at MSU on 3/7/2017, 
+which contains environmental parameters extraceted from MODIS data, for each of the sampling sites.
+Columns = 
+ID (matches site_numeral from the veg data)
+Category (country)	
+Lat 	
+Long	
+year	
+month	
+day	
+land cover	(code from MIDIS IGBP)
+blank (contains land cover name for previous column)	
+8 day modGPP (kgm2)	
+8 day mod GPP (gm2)	
+16 day 250m EVI 
+16 day NDVI	
+daily albedo BSA	
+daily albedo WSA
+
+The readable version of this file has been renamed: mgveg_env_vars.csv
+in teh .csv the fill and 32765 were changed to NA
