@@ -1,0 +1,24 @@
+1. How to compare changes in clusters over time? (naiman repeat sampling)
+2. find Meghan's new package -- ask Meghan for code
+3. How to integrate my IMAR data in to the other dataset?
+4. Can we get Jun Wang & Dan's veg data? Can we use Maria's veg data?
+
+
+5. Environ params and gradients to consider:
+  - CV in temp and precip across the region? that's at aggregate level tho, not per site. So that might come in on the axis?
+  
+6. Explanation of each variable from Ranjeet
+
+
+From end of Rmd doc:
+** TO DO **
+* I still need to calculate richness stats to estimate turnover, compare between IMAR/MG
+* We need to think about what other environmental variables we might be able to access and incorporate in to this.
+* This is just a first stab with the CCA so Ia m going to work with these analyses some mrore as well.
+
+
+7. Add FUNCTIONAL GROUP to each record. Have student add to table of Naiman data?
+
+8. Add something about Treatment type to each record as well. 
+
+9. Calculate turnover stats for IMAR and MG. 
