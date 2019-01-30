@@ -1,0 +1,269 @@
+---
+title: "Naiman codyn"
+output: html_notebook
+---
+1. Data import --------
+```{r}
+############ 2008 transects all:
+t09 <- read.csv("./data/transect09.csv", sep= ",", header = TRUE, stringsAsFactors = FALSE)
+t09 <- t09 %>% dplyr::select( -Month, -Day)
+# then need to create a summary of sp by transect:
+
+t09sum <- t09 %>% count(SiteName, Transect, SpeciesCode)%>% mutate(Year = 2008)
+t09sum <- t09sum[2:254,]
+# remove NAs
+t09sum <- na.omit(t09sum)
+#restrict number of transects:
+#t09sum <- t09sum %>% dplyr::filter(Transect <= 1)
+
+  # change variable names to match 2018:
+t09sum <- t09sum %>% mutate(Site = case_when(SiteName == "HeavyGrazing" ~ "Heavy",
+                                             SiteName == "RedoControl" ~ "Control",
+                                             SiteName == "DXG" ~ "DXG",
+                                             SiteName == "Naiman" ~ "Naiman",
+                                             SiteName == "Grazing" ~ "Grazing",
+                                             TRUE ~ as.character(SiteName))) #else NA
+
+########## 2018 transects :
+nm18 <- read_excel("./data/2018.Data.Entry.xlsx", sheet = 1)
+nm18 <- nm18 %>% dplyr::select(-Month, -Day, -X__1)
+tbl_df(nm18)
+
+t18sum <- nm18 %>% count(SiteName, Transect, SpeciesCode) %>% mutate(Year = 2018)
+t18sum <- mutate(t18sum, Site = SiteName)
+
+t18sum$SiteName<- as.factor(t18sum$SiteName)
+#t18sum$Transect<- as.factor(t18sum$Transect)
+t18sum$SpeciesCode<- as.factor(t18sum$SpeciesCode)
+#t18sum$Site<- as.factor(t18sum$Site)
+#
+#Manually add the Naiman transect data for 2018:
+nm08<- t09sum %>% filter(SiteName == "Naiman")
+
+SpeciesCode = rep(c("AH" ,"CM", "LD", "CS", "SM", "SV", "LO", "SalixQ", "EE"), 2)
+SiteName <- rep("Naiman", 18)
+n <- as.numeric(rep(c(15, 40, 13, 6, 20, 30, 1, 5, 6),2))
+Transect <- c(rep(1, 9), rep(2, 9))
+Year <- as.numeric(rep(2018, 18))
+Site<- as.character(rep("Naiman", 18))
+
+cols<-cbind(SiteName, Transect, SpeciesCode, n, Year, Site)
+dat<-as.data.frame(cols, stringsAsFactors = FALSE)
+dat$n<-as.numeric(as.character(dat$n))
+dat$Year<-as.numeric(as.character(dat$Year))
+dat$Transect<- as.numeric(as.character(dat$Transect))
+str(dat)
+
+
+
+# combine the two years:
+x <- bind_rows(dat, t18sum, t09sum)
+x18 <- x %>% filter(Year == 2018)
+
+# add unique ID as Replicate whichis Site&Transect combined:
+
+x <- x %>% mutate(Replicate = paste(Site, Transect, sep = "."))
+
+
+# remove Light grazing (and DXG?)
+
+trt <- c("Grazing", "Heavy", "Control", "Naiman")
+trt2 <- c("Grazing", "Heavy", "Control", "Naiman", "DXG") # to use DXG as reference
+
+nmtrans <- x %>% dplyr::filter(Site  %in% trt)
+nmdxg <- x %>% dplyr::filter(Site  %in% trt2)
+
+# w just 3 transects each:
+#nmveg3t<- nmtrans %>% filter(Transect <= 3)
+
+# w just 3 transects each:
+nmveg3t<- nmdxg %>% filter(Transect <= 3)
+
+
+###### mg_imar transect data:
+        
+    # not using this right now
+mgp16<- read.csv("./data/2016_MGIM_ga_veg_subset.csv", 
+                 header = TRUE)
+
+mgsum <- mgp16 %>% group_by(plat, site_original, site_numeral, Plot, Species) %>%
+                   summarise(n = sum(Cover)) %>%
+                   mutate(Replicate = paste(site_original, Plot, sep = "."))
+
+t09.3t<- nmveg3t %>% filter(Year == 2008)
+
+
+```
+
+2. Community analysis by year:
+# community structure: --------
+```{r}
+  #2008         ******* this isn't right now. the richness values are too high???
+community_diversity(df= t09.3t, abundance.var = "n", replicate.var = "Site")
+community_structure(df= t09.3t, abundance.var = "n", replicate.var = "Site")
+
+  #2018
+community_diversity(x18, abundance.var = "n", replicate.var = "SiteName")
+community_structure(df= x18, abundance.var = "n", replicate.var = "SiteName")
+
+  #mg_imar
+community_diversity(df = mgsum, abundance.var = "n", replicate.var = "site_original")
+community_structure(df= mgsum, abundance.var = "n", replicate.var = "site_original")
+
+community_diversity(df = mgsum, abundance.var = "n", replicate.var = "plat")
+community_structure(df= mgsum, abundance.var = "n", replicate.var = "plat")
+
+```
+# rank abundance curves: --------  NOT WORKING. ASK MEGAN.
+```{r}
+
+RAC_change(df = nmveg3t , 
+           species.var = "SpeciesCode",
+           time.var = "Year",
+           abundance.var = "n",
+           replicate.var = "Replicate")
+
+gzd<- nmveg3t%>% filter(Site == "Grazing")
+RAC_change(df = gzd , 
+           species.var = "SpeciesCode",
+           time.var = "Year",
+           abundance.var = "n",
+           replicate.var = "Replicate")
+
+
+
+
+# RAC_difference(df= mgsum, 
+#                species.var = "Species", 
+#                abundance.var = "n", 
+#                replicate.var = "Replicate", treatment.var = "plat")
+
+RAC_difference(df = nmveg3t,
+               species.var = "SpeciesCode",
+               abundance.var = "n",
+               replicate.var = "Replicate",
+               time.var = "Year")
+
+RAC_difference(df = x18,
+               species.var = "SpeciesCode",
+               abundance.var = "n",
+               replicate.var = "Replicate", treatment.var = "SiteName")
+
+```
+# species abundance ----------------
+```{r}
+abundance_change(df = nmveg3t,
+                 time.var = "Year",
+                 species.var = "SpeciesCode",
+                 abundance.var = "n",
+                 replicate.var = "Replicate"
+                 )
+    
+# abundance_difference(df = mgsum,
+#                      species.var = "Species",
+#                      abundance.var = "n",
+#                      replicate.var = "Replicate", 
+#                      treatment.var = "plat",
+#                      pool = TRUE)
+
+```
+
+# ORDINATION 
+  *2008*
+# convert to a sitexspecies matrix
+```{r}
+# nmdxg or nmveg3t?
+# sep by year?
+nmdxg08<- nmdxg %>% filter(Year == "2008")
+site.sp.quad <- cast(nmdxg08, Replicate ~ SpeciesCode, 
+                     value='n', FUN=mean)
+site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
+site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
+site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+```
+# calc distance matrix
+```{r}
+
+dis.bray <- vegdist(site.matrix,method="bray")
+# id 'treatments' = region
+# treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
+sites<- site.sp.quad[1:49, 1]
+# plots<- site.sp.quad[1:104, 2]
+```
+# Run the MDS
+```{r}
+
+dis.mds <- metaMDS(dis.bray, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+# view the results:
+dis.mds
+# pull the scores from the results:
+scores <- data.frame(scores(dis.mds, display = "sites")) # this extracts the scores for later plotting
+treat=c(rep("Control",15),rep("DXG",3), rep("Grazing", 13), rep("Heavy", 6), rep("Naiman", 12))
+scores2<- cbind(sites, scores, treat) # bind the scores to the site info
+```
+## NMDS Plot 
+
+Plot of the two NMDS axes, symbols separated by country (shape), site (color) and plot replicate (shade):
+to compare whether there wasovelarp in species composition 
+```{r echo=FALSE, fig.width = 10, fig.height = 7}
+ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(sites)))+
+   geom_point(aes(shape= treat), size=5)+
+   scale_fill_identity()+    # need a better color scale
+   xlab("NMDS Axis 1")+
+   ylab("NMDS Axis 2")
+```
+
+``` {r echo = FALSE, warning = FALSE}
+plot(dis.mds, type = "t")
+ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
+```
+
+  *2018*
+
+# convert to a sitexspecies matrix
+```{r}
+# nmdxg or nmveg3t?
+# sep by year?
+nmdxg18<- nmdxg %>% filter(Year == "2018")
+site.sp.quad <- cast(nmdxg18, Replicate ~ SpeciesCode, 
+                     value='n', FUN=mean)
+site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
+site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
+site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+```
+# calc distance matrix
+```{r}
+
+dis.bray <- vegdist(site.matrix,method="bray")
+# id 'treatments' = region
+# treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
+sites<- site.sp.quad[1:5, 1]
+# plots<- site.sp.quad[1:104, 2]
+```
+# Run the MDS
+```{r}
+
+dis.mds <- metaMDS(dis.bray, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+# view the results:
+dis.mds
+# pull the scores from the results:
+scores <- data.frame(scores(dis.mds, display = "sites")) # this extracts the scores for later plotting
+treat=c("Control","Grazing", "Heavy", "Naiman", "Naiman")
+scores2<- cbind(sites, scores, treat) # bind the scores to the site info
+```
+## NMDS Plot 
+
+Plot of the two NMDS axes, symbols separated by country (shape), site (color) and plot replicate (shade):
+to compare whether there wasovelarp in species composition 
+```{r echo=FALSE, fig.width = 10, fig.height = 7}
+ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(sites)))+
+   geom_point(aes(shape= treat), size=5)+
+   scale_fill_identity()+    # need a better color scale
+   xlab("NMDS Axis 1")+
+   ylab("NMDS Axis 2")
+```
+
+``` {r echo = FALSE, warning = FALSE}
+plot(dis.mds, type = "t")
+ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
+```
