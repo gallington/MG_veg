@@ -58,10 +58,13 @@ scores <- data.frame(scores(dis.mds, display = "sites")) # this extracts the sco
 scores2<- cbind(sites, scores) # bind the scores to the site info
 ```
 
+# COMPOSITION
+
+## SIMILARITY
 ## NMDS Plot 
 
 Plot of the two NMDS axes, symbols separated by country (shape), site (color) and plot replicate (shade):
-
+to compare whether there wasovelarp in species composition 
 ```{r echo=FALSE, fig.width = 10, fig.height = 7}
 ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(sites), alpha=factor(plots)))+
    geom_point(aes(shape= treat), size=5)+
@@ -77,7 +80,7 @@ Most spread is along the first NMDS axis. All the difference between the MG adn 
 plot(dis.mds, type = "t")
 ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
 ```
-  If we look at each countyr separately, the plots within sites show diff patterns by country as well.  In IMAR there is clear distinction between individual sites; plots are more similar wihtin site than among. Again sites 34 and 35 are located farther out on the first axis. 
+  If we look at each country separately, the plots within sites show diff patterns by country as well.  In IMAR there is clear distinction between individual sites; plots are more similar wihtin site than among. Again sites 34 and 35 are located farther out on the first axis. 
 
 ``` {r echo = FALSE, warning = FALSE}
 # subsetting to look just at IMAR:
@@ -155,7 +158,8 @@ ordihull(mg.mds,groups=mg.sites,draw="polygon",col="grey90",label=T)
 I am using EVI and albedo here. GPP and EVI are so highly correlated it doesn't make sense to use both. 
 
 First with the entire plateau:
-The labels in black are of the Sites, which are labelled w row for some reason.    
+The labels in black are of the Sites, which are labelled w row for some reason.   
+<Need to add text in here that explains each of the variables from Ranjeet. Find his README>
 ``` {r echo = FALSE, warning = FALSE, messages = FALSE}
 # CCA
 #
@@ -173,13 +177,15 @@ mg.env16<- read.csv("./data/mgveg_env_vars.csv", sep=",",
 names(mg.env16)[8:13] <- c("LCnum", "LCtype", "GPPkg", "GPPg", "EVI", "NDVI")  #fix column names
 tbl_df(mg.env16) 
 
+# substituting a value for the one NA in albedo to see if it makes it work
+mean(mg.env16$daily.albedo.WSA[3:22])
+mg.env16[2,15]<- 0.2016
+
 sub.env<- mg.env16 %>%
-          select( LCtype, EVI, as.numeric(daily.albedo.WSA)) %>%
+          select( LCtype, EVI, daily.albedo.WSA) %>%
           slice(1:35)
 
-# substituting a value for the one NA in albedo to see if it makes it work
-mean(sub.env$daily.albedo.WSA[3:22])
-sub.env[2,3]<- 0.2016
+
 
 
 
@@ -222,8 +228,26 @@ plot(mg.cca, display=c("wa", "cn"))
 
 ```
 
+## DISSIMILARITY
+For the species data, we calculated the abundance of each species for each sampling site and used Bray‐Curtis dissimilarity to determine how similar sampling sites were to one another. 
 ** TO DO **
 * I still need to calculate richness stats to estimate turnover, compare between IMAR/MG
 * We need to think about what other environmental variables we might be able to access and incorporate in to this.
 * This is just a first stab with the CCA so Ia m going to work with these analyses some mrore as well.
+```{r}
 
+# SPECIES RICHNESS BY SITE -----
+mgimSR<- specnumber(site.matrix)
+
+# COMPOSITION------ 
+  #Sorensons index by site
+mgim.beta <- vegdist(site.matrix, binary=TRUE)
+mean(mgim.beta)
+
+plot(dis.mds, type = "t")
+ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
+```
+
+From Meghan's paper ---
+For the species data, we calculated the abundance of each species for each sampling site and used Bray‐Curtis dissimilarity to determine how similar sampling sites were to one another.
+the adonis function to perform permutation multivariate ANOVA to test whether neighborhoods had different centroid means and the betadisper function to perform multivariate homogeneity of group dispersions to test whether neighborhoods had different dispersion around centroid means. Within a neighborhood, we used individual residential properties as the replicate for the yard trees (n = 15) and the block as the replicate for street trees (n = 3). We also conducted similar multivariate analyses to see if there were differences between street and yard trees when all trees were aggregated up to the neighborhood (n = 9). To determine the relationship between distance between neighborhoods (km) and tree community similarity based on species abundance data, we performed Mantel correlations using the Vegan package. Geographic distances were calculated in R with the distm function in the geosphere package (Hijmans et al. 2017) using the distcosine function.
