@@ -1,5 +1,5 @@
 # REDO INTEGRATING NAIMAN 2018
-
+# need to annotate for Jhovae
 
 # DON:T USE THESE< SCROLL DOWN
 # Need to sort out the variable names bc something is weird with SiteCode
