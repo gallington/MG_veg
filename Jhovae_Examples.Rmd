@@ -1,0 +1,94 @@
+---
+title: "Code suggestions for Jhovae"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+Below is an example of what we want to do with the Naiman data, but with some data from a different project. You'll just need to modify it a bit to get it to work with the Naiman data.
+Also to run this you'll need to have the data file that is called below, and the soils data, both of which are on github.
+
+We're going to try to do two things. First is called Nonmetric Multidimensional Scaling, which is a fancy way of saying Clustering. We'll calculate a distance matrix and then plot the ordination diagrams, which basically calculates & visualized clusters in the data, so we can see if data are more similar WITHIN a site than between sites.
+
+Then we will do a diff type of ordination called a Correspondence Analysis which allows us to see how environmental parameters correlate with the clusters/spread in the species data across the sites.
+
+Load packages:
+```{r}
+library(vegan)
+library(MASS)
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(stringr)
+```
+
+You'll use the code you already have written up for Naiman data for this next step, but I'm including this here to get the example w these data to work:
+```{r}
+#load the data
+mgp16<- read.csv("./data/2016_MGIM_ga_veg_subset.csv", 
+                  header = TRUE)
+
+sp.df<- dplyr::select(mgp16, site_numeral, Plot, Species, Cover)
+sp.df$Species<- str_replace_all(sp.df$Species, " ", ".")
+
+# convert to a sitexspecies matrix
+site.sp.quad <- dcast(sp.df, site_numeral + Plot ~ Species, 
+                     value.var ='Cover', FUN=mean)
+site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
+site.matrix <- site.sp.quad    # just renaming it so I don't have to change the 
+#name that is called in everything below
+```
+You should have your own version of all of that above.
+
+Here's the new stuff.
+
+```{r}
+# calc distance matrix
+dis.bray <- vegdist(site.matrix,method="bray")
+
+# id 'treatments' & replicates for use in later steps when need to have labels 
+#for plotting
+# here the "treatments" are just the two regions, but in Naiman it will be each
+#different site.
+treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))  # create a vector of the site
+#names, each repeated the number of times = number of data points for the site. (66+
+#38 = 104)
+
+# we'll also use this info in later steps.
+sites<- site.sp.quad[1:104, 1]         # extract site IDs
+plots<- site.sp.quad[1:104, 2]        # extract plot replicates
+```
+
+Use the distance matrix you created above to run the NMDS:
+```{r}
+# 
+dis.mds <- metaMDS(dis.bray, trace = FALSE, autotransform = FALSE, shrink= FALSE)
+dis.mds
+```
+
+Then once we've run that analysis, we need to extract some info from the object with the results so that we can use that
+infor for plotting later.
+```{r}
+scores <- data.frame(scores(dis.mds, display = "sites")) # this extracts the scores
+#you want to plot in ggplot
+
+# next bind the scores to the site info that we created above
+scores2<- cbind(sites, scores) 
+```
+
+Basic plotting of this info:   
+```{r}
+plot(dis.mds, type = "t")   # just plots the individual sampling plots 
+# plots w a polygon drawn around the clusters
+ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)  
+# labels all the sampling pltos (pretty messy and hard to read, so we prob don't want this)
+ordihull(dis.mds,groups=sites,draw="polygon",col="grey90",label=T)   
+```
+
+Now we want to bring in the environmental data!
+But we need to load it first.
+Load the soils data file and calc basic summary stats for each site.
+```{r}
+
+```
+

@@ -2,8 +2,13 @@
 title: "Naiman codyn"
 output: html_notebook
 ---
+
 1. Data import --------
 ```{r}
+library(readxl)
+library(codyn)
+library(reshape2)
+library(vegan)
 ############ 2008 transects all:
 t09 <- read.csv("./data/transect09.csv", sep= ",", header = TRUE, stringsAsFactors = FALSE)
 t09 <- t09 %>% dplyr::select( -Month, -Day)
@@ -26,7 +31,7 @@ t09sum <- t09sum %>% mutate(Site = case_when(SiteName == "HeavyGrazing" ~ "Heavy
 
 ########## 2018 transects :
 nm18 <- read_excel("./data/2018.Data.Entry.xlsx", sheet = 1)
-nm18 <- nm18 %>% dplyr::select(-Month, -Day, -X__1)
+nm18 <- nm18 %>% dplyr::select(Year, SiteName, Transect, Distance.m, SpeciesCode)
 tbl_df(nm18)
 
 t18sum <- nm18 %>% count(SiteName, Transect, SpeciesCode) %>% mutate(Year = 2018)
@@ -175,11 +180,12 @@ abundance_change(df = nmveg3t,
 # nmdxg or nmveg3t?
 # sep by year?
 nmdxg08<- nmdxg %>% filter(Year == "2008")
-site.sp.quad <- cast(nmdxg08, Replicate ~ SpeciesCode, 
-                     value='n', FUN=mean)
-site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
-site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
-site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+site.sp.quad08 <- acast(nmdxg08, Replicate ~ SpeciesCode, 
+                     value.var='n', FUN=mean)
+site.sp.df <- as.data.frame(site.sp.quad08) #convert from class "cast" to a df so can pull trt later
+site.sp.quad08[is.na(site.sp.quad08)] <- 0   #replace NA with 0
+#site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+site.matrix<- site.sp.quad08
 ```
 # calc distance matrix
 ```{r}
@@ -187,7 +193,7 @@ site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
 dis.bray <- vegdist(site.matrix,method="bray")
 # id 'treatments' = region
 # treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
-sites<- site.sp.quad[1:49, 1]
+sites<- site.sp.df[1:49, 1]
 # plots<- site.sp.quad[1:104, 2]
 ```
 # Run the MDS
@@ -206,7 +212,7 @@ scores2<- cbind(sites, scores, treat) # bind the scores to the site info
 Plot of the two NMDS axes, symbols separated by country (shape), site (color) and plot replicate (shade):
 to compare whether there wasovelarp in species composition 
 ```{r echo=FALSE, fig.width = 10, fig.height = 7}
-ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(sites)))+
+ggplot(scores2, aes(x=NMDS1, y=NMDS2, color=factor(treat)))+
    geom_point(aes(shape= treat), size=5)+
    scale_fill_identity()+    # need a better color scale
    xlab("NMDS Axis 1")+
@@ -225,11 +231,12 @@ ordihull(dis.mds,groups=treat,draw="polygon",col="grey90",label=T)
 # nmdxg or nmveg3t?
 # sep by year?
 nmdxg18<- nmdxg %>% filter(Year == "2018")
-site.sp.quad <- cast(nmdxg18, Replicate ~ SpeciesCode, 
-                     value='n', FUN=mean)
-site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
-site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
-site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+site.sp.quad18 <- acast(nmdxg18, Replicate ~ SpeciesCode, 
+                     value.var='n', FUN=mean)
+site.sp.df <- as.data.frame(site.sp.quad18) #convert from class "cast" to a df
+site.sp.quad18[is.na(site.sp.quad18)] <- 0   #replace NA with 0
+#site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+site.matrix <- site.sp.quad18
 ```
 # calc distance matrix
 ```{r}
@@ -237,7 +244,7 @@ site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
 dis.bray <- vegdist(site.matrix,method="bray")
 # id 'treatments' = region
 # treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
-sites<- site.sp.quad[1:5, 1]
+sites<- site.sp.df[1:5, 1]
 # plots<- site.sp.quad[1:104, 2]
 ```
 # Run the MDS

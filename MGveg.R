@@ -1,33 +1,35 @@
+# 21 Apr 2019 updated to reshape2
 library(vegan)
 library(MASS)
 library(dplyr)
 library(tidyr)
-library(reshape)
+library(reshape2)
 library(stringr)
 
-# what's the main diff between metaMDS and isoMDS? A: just use metaMDS 
-# does metaMDS take a dissim matrix or just a matrix of comm data? 
-# I am not clear on the best approach?
 
 #load data
 mgp16<- read.csv("./data/2016_MGIM_ga_veg_subset.csv", 
                   header = TRUE)
 
-sp.df<- select(mgp16, site_numeral, Plot, Species, Cover)
+sp.df<- dplyr::select(mgp16, site_numeral, Plot, Species, Cover)
 sp.df$Species<- str_replace_all(sp.df$Species, " ", ".")
 
 # convert to a sitexspecies matrix
-site.sp.quad <- cast(sp.df, site_numeral + Plot ~ Species, 
-                     value='Cover', FUN=mean)
-site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
+site.sp.quad <- dcast(sp.df, site_numeral + Plot ~ Species, 
+                     value.var ='Cover', FUN=mean)
+# don't need this anymore 
+#site.sp.quad <- as.data.frame(site.sp.quad) #convert from class "cast" to a df
 site.sp.quad[is.na(site.sp.quad)] <- 0   #replace NA with 0
-site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+# and don't need this anymore either I think
+#site.matrix <- as.matrix.cast_df(site.sp.quad) #convert to a matrix
+site.matrix <- site.sp.quad    # just renaming it so I don't have to change everything below:
 
 # calc distance matrix
 dis.bray <- vegdist(site.matrix,method="bray")
 # id 'treatments' = region
-treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))
-sites<- site.sp.quad[1:104, 1]
+  # for use in later steps when need to have labels for plotting
+treat=c(rep("Mongolia",66),rep("Inner Mongolia",38))  
+sites<- site.sp.quad[1:104, 1]  
 plots<- site.sp.quad[1:104, 2]
 
 
